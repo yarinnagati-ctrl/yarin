@@ -5,6 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>גלריית פרויקטים - ירין עבודות גימור בע"מ</title>
 <meta name="description" content="תוכן דמו להחלפה: עסק לעבודות גמר לפרויקטים פרטיים, מסחריים וציבוריים — נגרות בהתאמה אישית, בית מלאכה, עבודות בטון, חיפויי PVC וחיפויי קירות." />
+<link rel="canonical" href="https://yarinnagati-ctrl.github.io/yarin/gallery/" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="he_IL" />
+<meta property="og:title" content="גלריית פרויקטים - ירין עבודות גימור בע&quot;מ" />
+<meta property="og:description" content="תוכן דמו להחלפה: עסק לעבודות גמר לפרויקטים פרטיים, מסחריים וציבוריים — נגרות בהתאמה אישית, בית מלאכה, עבודות בטון, חיפויי PVC וחיפויי קירות." />
+<meta property="og:url" content="https://yarinnagati-ctrl.github.io/yarin/gallery/" />
+<meta property="og:image" content="https://images.pexels.com/photos/30216939/pexels-photo-30216939/free-photo-of-skilled-carpenters-at-work-in-dubai-workshop.jpeg?auto=compress&cs=tinysrgb&w=1600" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="גלריית פרויקטים - ירין עבודות גימור בע&quot;מ" />
+<meta name="twitter:description" content="תוכן דמו להחלפה: עסק לעבודות גמר לפרויקטים פרטיים, מסחריים וציבוריים — נגרות בהתאמה אישית, בית מלאכה, עבודות בטון, חיפויי PVC וחיפויי קירות." />
+<meta name="twitter:image" content="https://images.pexels.com/photos/30216939/pexels-photo-30216939/free-photo-of-skilled-carpenters-at-work-in-dubai-workshop.jpeg?auto=compress&cs=tinysrgb&w=1600" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "דף הבית", "item": "https://yarinnagati-ctrl.github.io/yarin/" },
+    { "@type": "ListItem", "position": 2, "name": "גלריה", "item": "https://yarinnagati-ctrl.github.io/yarin/gallery/" }
+  ]
+}
+</script>
 <link rel="icon" href="data:," />
 <style>
 /* ===== Fonts (embedded, Hebrew + Latin subsets only) ===== */
@@ -52,7 +73,7 @@
   --background-alt: #6b4d33;
   --surface: #8f6c48;
   --foreground: #f7f1e6;
-  --foreground-muted: #e2cead;
+  --foreground-muted: #ecdfc7;
   --border: #c39a6b;
   --accent: #f0c27a;
   --accent-dark: #6d5540;
@@ -76,6 +97,22 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 input, textarea { font: inherit; }
 
 .container { max-width: 72rem; margin-inline: auto; padding-inline: 1.5rem; }
+
+.skip-link {
+  position: absolute; top: -3rem; right: 1rem; z-index: 100;
+  background: var(--ink); color: var(--foreground);
+  padding: 0.75rem 1.25rem; border-radius: 0 0 0.5rem 0.5rem;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 0; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.breadcrumbs { padding-top: 1.5rem; }
+.breadcrumbs__list { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 0.5rem; font-size: 0.8125rem; color: var(--foreground-muted); }
+.breadcrumbs__list li + li::before { content: "/"; margin-inline-end: 0.5rem; color: var(--border); }
+.breadcrumbs__list a { text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--border); }
+.breadcrumbs__list a:hover { color: var(--accent); }
+.breadcrumbs__list [aria-current="page"] { color: var(--foreground); }
 
 .eyebrow { letter-spacing: 0.14em; }
 .heading-glow {
@@ -478,6 +515,7 @@ input, textarea { font: inherit; }
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
 <header class="site-header">
   <div class="container site-header__bar">
     <button type="button" class="menu-btn" data-menu-open aria-label="פתח תפריט" aria-expanded="false">Menu</button>
@@ -492,14 +530,20 @@ input, textarea { font: inherit; }
   <a href="../index.html">דף הבית</a>
   <a href="../index.html#about">אודות</a>
   <a href="../index.html#services">שירותים</a>
-  <a href="../gallery/">גלריה</a>
+  <a href="../gallery/" aria-current="page">גלריה</a>
   <a href="../index.html#before-after">לפני ואחרי</a>
   <a href="../index.html#testimonials">המלצות</a>
   <a href="../index.html#quote">הצעת מחיר</a>
   <a href="tel:+972500000000" class="nav-drawer__contact">צור קשר</a>
 </nav>
 
-<main>
+<main id="main-content">
+<nav class="breadcrumbs container" aria-label="breadcrumb">
+  <ol class="breadcrumbs__list">
+    <li><a href="../index.html">דף הבית</a></li>
+    <li aria-current="page">גלריה</li>
+  </ol>
+</nav>
 <section class="container gallery-page">
   <p class="heading-glow eyebrow gallery-page__eyebrow">גלריה</p>
   <h1 class="font-heading gallery-page__title">הפרויקטים שלנו</h1>
@@ -644,7 +688,7 @@ input, textarea { font: inherit; }
   </div>
 
   <div class="site-footer__bottom">
-    <p>© <span id="footer-year"></span> ירין עבודות גימור בע&quot;מ. כל הזכויות שמורות.</p>
+    <p>© <span id="footer-year">2026</span> ירין עבודות גימור בע&quot;מ. כל הזכויות שמורות.</p>
   </div>
 </footer>
 

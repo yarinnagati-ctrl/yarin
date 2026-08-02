@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>העמוד לא נמצא - ירין עבודות גימור בע"מ</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" href="data:," />
+<style>
+:root {
+  --background: #7a5a3d;
+  --foreground: #f7f1e6;
+  --foreground-muted: #e2cead;
+  --border: #c39a6b;
+  --accent: #f0c27a;
+  --ink: #2e2015;
+}
+* { box-sizing: border-box; }
+html { direction: rtl; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+  padding: 1.5rem;
+}
+.wrap { max-width: 28rem; }
+.eyebrow { letter-spacing: 0.14em; font-size: 0.8125rem; color: var(--accent); text-transform: uppercase; }
+.code { font-size: 5rem; font-weight: 700; margin: 0.5rem 0; color: var(--foreground); }
+.msg { color: var(--foreground-muted); font-size: 1rem; line-height: 1.75; margin-bottom: 2rem; }
+.actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+a.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+a.btn:hover { opacity: 0.85; }
+.btn-primary { background: var(--ink); color: var(--foreground); }
+.btn-outline { border: 1px solid var(--border); color: var(--foreground); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">404</p>
+  <p class="code">העמוד לא נמצא</p>
+  <p class="msg">ייתכן שהקישור שגוי או שהעמוד הוסר. אפשר לחזור לדף הבית או לצפות בגלריית הפרויקטים.</p>
+  <div class="actions">
+    <a href="/yarin/" class="btn btn-primary">דף הבית</a>
+    <a href="/yarin/gallery/" class="btn btn-outline">גלריית פרויקטים</a>
+  </div>
+</div>
+</body>
+</html>
