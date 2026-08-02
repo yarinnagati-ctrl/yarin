@@ -123,11 +123,35 @@ Tracks the current state of work on gimur-site so we can pick up exactly where w
 - Backed up the project per user request: created `C:\Users\User\gimur-site-backup-2026-07-24.zip` (all source/config files — `src/`, `public/`, `package.json`, `PROGRESS.md`, etc. — excluding `node_modules` and `.next`, matching `.gitignore`). User explicitly chose a quick zip snapshot over setting up Git for now (Git still isn't installed on this machine).
 - If more backups are made later, use the same dated-filename pattern (`gimur-site-backup-YYYY-MM-DD.zip`) in `C:\Users\User\`.
 
+## Status: 2026-07-25
+
+- Redesign to a "more quality" look, referencing https://a-weiss.co.il/ as visual inspiration (design/palette only — not their content or photos): moved from the original warm neutral cream/terracotta palette to a neutral muted palette — near-white background, near-black `--ink` for header/footer/hero-overlay/stats bar, muted bronze `--accent` reserved for small highlights only (photography carries the color, not the accent hue). Added `--ink` / `--ink-soft` to `globals.css`.
+- `Header.js` rebuilt into an always-dark minimal bar: logo + hamburger/"Menu" label only, no visible inline nav links (nav now lives entirely in the slide-out drawer).
+- `Hero.js` rebuilt from the previous 3-column side-crossfade layout into a single full-bleed crossfading photo background with a dark gradient overlay and an oversized bold headline.
+- Increased section padding site-wide (`py-24`/`py-32`) and flattened most rounded-corner "cute" card styling (`rounded-2xl` + shadow) to sharp-edged bordered panels for a more editorial look.
+- Declined a follow-up request to pull the actual images from a-weiss.co.il — those are photos of a real company's real completed projects, and reusing them would misrepresent someone else's work as this business's own. Instead searched Pexels for higher-quality/more editorial replacement stock photos and swapped every URL in `src/lib/photos.js` (same category structure, same "תוכן דמו" tagging convention via `StockPhoto.js`).
+- Verified with `npm run build` and a visual pass in Chrome.
+
+## Status: 2026-08-02
+
+- Structure pass to bring the site's *layout/structure* — not just the palette — closer to a-weiss.co.il, per explicit user request, using only the business's own content:
+  - `GalleryPreview.js`: project grid changed from a padded/contained layout to a true edge-to-edge full-bleed 3-column grid (2px gaps; the heading/CTA row above it stays in a contained wrapper) — mirrors a-weiss's full-bleed portfolio grid.
+  - `src/app/page.js`: reordered sections so the project grid appears immediately after the Hero (previously it came after About/Services), matching a-weiss's flow of hero → big portfolio grid → rest of page.
+  - `Footer.js`: restructured from a single centered text block into three columns (business name + tagline / contact block with phone+email placeholders / social links), plus a separate bottom copyright bar.
+  - Deliberately did **not** add an a-weiss-style "client logos" trust wall (real recognizable companies shown as social proof) — fabricating equivalent logos would misrepresent the business. Flagged as a future addition if real client references become available.
+- Follow-up layout tweaks per user feedback:
+  - Moved `Stats` (שנות ניסיון / פרויקטים / לקוחות / ערים, animated counters) to right after the Hero, before the project grid. Current home order: Hero → Stats → GalleryPreview → About → Services → BeforeAfter → Testimonials → QuoteForm.
+  - Shrunk just the custom-carpentry tile in `GalleryPreview.js`: added inset padding (`p-6 sm:p-10`) around that one image so it renders framed/smaller than the other two full-bleed tiles.
+- Reconfirmed this project runs via `npm run build` + `npm run start` (production server) — **not** `npm run dev` — so every code change needs a rebuild + restart before it's visible; there is no hot reload. Rebuilt/restarted twice this session; verified each time visually and via browser console (no errors).
+- Set up real source control, replacing the manual zip-snapshot approach:
+  - Generated an SSH key (`~/.ssh/id_ed25519`, ed25519, no passphrase) for GitHub. Hit and fixed a real bug: `ssh-keygen -N '""'` in PowerShell passes the literal 2-character string `""` as the passphrase (not empty), silently encrypting the key and causing non-interactive auth to fail with "Permission denied (publickey)" even though the key was correctly registered on GitHub. Fixed with `ssh-keygen -p -N ''` (empty single-quoted string). **Future note: on this machine's PowerShell, always use `-N ''` for an empty SSH passphrase, never `-N '""'`.**
+  - Installed Git 2.55.0 via `winget install --id Git.Git -e`. Note: this PowerShell task environment does not pick up an installer's PATH update within the same session (each command runs as a fresh process) — `C:\Program Files\Git\cmd` needs to be prepended to `$env:PATH` explicitly per command until a new session/terminal is started.
+  - Ran `git init`, set local `user.name` / `user.email`, excluded `.claude/settings.local.json` from tracking (personal/local Claude Code config, analogous to `.env.local` — added to `.gitignore`), made the first commit (40 files), added remote `origin` → `git@github.com:yarinnagati-ctrl/yarin.git`, and pushed `main` with upstream tracking set. Verified push integrity via `git diff main origin/main` (empty) and by loading the repo directly on GitHub.
+
 ## Next steps
 
-- Waiting on the user to send the logo + project photos to replace the Hero placeholders.
-- Still pending decisions: font (Rubik recommended / Assistant / Varela Round), color palette (warm neutral recommended / cool minimal / dark premium).
-- Still need real content from the user per the checklist below (business name, real phone/WhatsApp number, service areas, about text, project photos, testimonials), then swap it into the remaining TODO-marked spots.
-- Gallery category filter buttons are currently static (non-functional) — wire up real filtering once there are real project categories/photos.
-- Still open: how the user wants the project saved/backed up (see note above).
-- Confirm mobile hero behavior (side columns hidden vs. some visible) once the user sees it on a phone-sized screen.
+- Still waiting on real content from the user: confirmed business name/logo, real phone/WhatsApp number, service areas, about text, real project photos (ideally before/after pairs), real testimonials, and — if available — real client references for a possible future trust-wall section.
+- `QuoteForm.js` is still static/demo — not wired to any real submission backend (email, WhatsApp API, Formspree, etc.).
+- SEO/technical gaps not yet addressed: no favicon, no Open Graph image, no JSON-LD `LocalBusiness` schema, no `robots.txt`/`sitemap.xml`; default Next.js boilerplate SVGs still sitting unused in `public/`.
+- Gallery category filter on `/gallery` was working pre-redesign — worth a quick re-check now that the homepage structure has changed, to make sure nothing regressed.
+- Git/GitHub is now set up (`yarinnagati-ctrl/yarin`, branch `main`) — use normal `git add` / `commit` / `push` going forward instead of zip backups.
