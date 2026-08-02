@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+/* פלטת "חום עשיר" — רקע ברונזה כהה וחמימה בכל האתר, טקסט שנהב בהיר, זהב עמום כנקודת דגש */
+:root {
+  --background: #7a5a3d;
+  --background-alt: #6b4d33;
+  --surface: #8f6c48;
+  --foreground: #f7f1e6;
+  --foreground-muted: #e2cead;
+  --border: #c39a6b;
+  --accent: #f0c27a;
+  --accent-dark: #6d5540;
+  --accent-soft: #ece6da;
+  --ink: #2e2015;
+  --ink-soft: #3c2b1c;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-alt: var(--background-alt);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-dark: var(--accent-dark);
+  --color-accent-soft: var(--accent-soft);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-rubik), "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+/* Hero — עמודות תמונה בדעיכה איטית */
+@keyframes fade-slide {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  25% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-slide {
+  animation-name: fade-slide;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+/* מעבר עדין בין טאבים — משמש ע"י Services.js */
+@keyframes tab-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-tab-fade-in {
+  animation: tab-fade-in 0.35s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-tab-fade-in {
+    animation: none;
+  }
+}
+
+/* גילוי עדין בגלילה — משמש ע"י ScrollReveal.js */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.reveal.is-visible {
+  animation: reveal-up 0.7s ease-out forwards;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-slide {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+/* תווית "eyebrow" מעל כותרות גדולות — ריווח אותיות רחב במקום אותיות רישיות (שלא קיימות בעברית) */
+.eyebrow {
+  letter-spacing: 0.14em;
+}
+
+/* כיתוב "Menu" מיוחד בהדר — פונט serif נפרד מהגוף הרגיל */
+.font-accent {
+  font-family: var(--font-accent), serif;
+}
+
+/* כותרות ראשיות — serif עברי איכותי, נבדל מגוף הטקסט */
+.font-heading {
+  font-family: var(--font-heading), serif;
+}
+
+/* זוהר זהב רך לכותרות משנה — "תאורה" עדינה סביב האותיות */
+.heading-glow {
+  text-shadow:
+    0 0 14px rgba(240, 194, 122, 0.55),
+    0 0 4px rgba(240, 194, 122, 0.35);
+}
+
+/* סליידר לפני/אחרי — עיצוב ה-thumb של ה-range input */
+.ba-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+
+.ba-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0;
+  height: 0;
+}
+
+.ba-slider::-moz-range-thumb {
+  width: 0;
+  height: 0;
+  border: none;
+  background: transparent;
+}
+
+.ba-slider::-moz-range-track {
+  background: transparent;
+}
