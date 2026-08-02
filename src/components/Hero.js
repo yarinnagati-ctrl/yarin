@@ -45,7 +45,7 @@ export default function Hero() {
           נגרות בהתאמה אישית · עבודות בטון · חיפויי קיר
         </p>
         <h1 className="font-heading mt-5 max-w-3xl text-6xl leading-[1.05] text-white sm:text-8xl lg:text-9xl">
-          מאיר סרביאן בע&quot;מ
+          ירין עבודות גימור בע&quot;מ
         </h1>
         <p className="mt-6 max-w-md text-base leading-7 text-white/75 sm:text-lg">
           {/* תוכן דמו להחלפה */}

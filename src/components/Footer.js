@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-14 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <p className="text-sm font-bold tracking-[0.14em] text-white">
-            מאיר סרביאן בע&quot;מ
+            ירין עבודות גימור בע&quot;מ
           </p>
           <p className="mt-4 max-w-xs">
             {/* תוכן דמו להחלפה */}
@@ -41,7 +41,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <p className="mx-auto max-w-6xl px-6 py-6 text-center text-xs">
           {/* TODO: מספר עוסק/ח.פ אם רלוונטי */}
-          © {new Date().getFullYear()} מאיר סרביאן בע&quot;מ. כל הזכויות שמורות.
+          © {new Date().getFullYear()} ירין עבודות גימור בע&quot;מ. כל הזכויות שמורות.
         </p>
       </div>
     </footer>

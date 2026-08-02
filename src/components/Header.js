@@ -37,7 +37,7 @@ export default function Header() {
           className="text-sm font-bold tracking-[0.14em] text-white"
         >
           {/* TODO: לוגו */}
-          מאיר סרביאן בע&quot;מ
+          ירין עבודות גימור בע&quot;מ
         </Link>
       </div>
 

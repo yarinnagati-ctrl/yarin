@@ -1,7 +1,7 @@
 import GalleryGrid from "@/components/GalleryGrid";
 
 export const metadata = {
-  title: "גלריית פרויקטים - מאיר סרביאן בע\"מ",
+  title: "גלריית פרויקטים - ירין עבודות גימור בע\"מ",
 };
 
 export default function GalleryPage() {
