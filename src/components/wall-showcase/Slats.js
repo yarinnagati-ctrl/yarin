@@ -5,6 +5,7 @@ import { useFrame } from "@react-three/fiber";
 import { RoundedBox, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 import { WALL_RECT, FRUSTUM_BOTTOM } from "./wallRect";
+import { withBasePath } from "@/lib/basePath";
 
 const INSTALL_SPAN = 0.2;
 // כל קרש מתחיל מתחת לרצפה (מחוץ לפריים לגמרי), לא רק מתחת למיקומו שלו
@@ -68,7 +69,7 @@ export default function Slats({ progressRef, reducedMotion, count = 65 }) {
   // קווי הרווח השחורים ובלי הרצפה. חולקים אותה על פני כל הקרשים ומרבים
   // אותה אופקית (RepeatWrapping) כדי לקבל גוון עץ חם ואחיד עם קצת סיב, בלי
   // גיוון בין קרש לקרש.
-  const baseTexture = useTexture("/images/wall-showcase/wood-slat-warm.jpg");
+  const baseTexture = useTexture(withBasePath("/images/wall-showcase/wood-slat-warm.jpg"));
   const woodTexture = useMemo(() => {
     const t = baseTexture.clone();
     t.needsUpdate = true;

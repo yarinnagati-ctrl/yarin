@@ -7,6 +7,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { BACKDROP_ASPECT } from "./wallRect";
 import WallQuoteCTA from "./WallQuoteCTA";
+import { withBasePath } from "@/lib/basePath";
 
 // ה-Canvas של Three.js נטען רק בצד הלקוח — לא נחוץ ב-SSR/ב-export הסטטי.
 const Scene = dynamic(() => import("./Scene"), { ssr: false });
@@ -86,7 +87,7 @@ export default function WallCladdingShowcase() {
         >
           {/* רקע פוטוריאליסטי סטטי — הקיר, החדר, התאורה והעציץ נעולים לצמיתות */}
           <Image
-            src="/images/wall-showcase/room-backdrop.jpg"
+            src={withBasePath("/images/wall-showcase/room-backdrop.jpg")}
             alt=""
             fill
             priority={false}

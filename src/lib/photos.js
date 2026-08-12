@@ -1,5 +1,6 @@
 // תמונות מלאי (Pexels, רישיון חופשי לשימוש מסחרי) — תוכן דמו להחלפה בתמונות פרויקטים אמיתיות.
 // כל תמונה מסומנת בתג "תוכן דמו" קטן על ידי StockPhoto.js.
+import { withBasePath } from "./basePath";
 
 const carpentry = [
   "https://images.pexels.com/photos/30216939/pexels-photo-30216939/free-photo-of-skilled-carpenters-at-work-in-dubai-workshop.jpeg?auto=compress&cs=tinysrgb&w=1600",
@@ -69,8 +70,8 @@ export const galleryPreview = [carpentry[2], concrete[0], pvc[1]];
 export const beforeAfterPairs = [
   {
     title: "פילוס וריצוף אפוקסי",
-    before: "/images/before-after/floor-before.jpg",
-    after: "/images/before-after/floor-after.jpg",
+    before: withBasePath("/images/before-after/floor-before.jpg"),
+    after: withBasePath("/images/before-after/floor-after.jpg"),
     real: true,
   },
   { title: "חיפוי קיר", before: site[0], after: wallCladding[0] },
