@@ -39,7 +39,7 @@ export default function QuoteForm() {
   return (
     <section
       id="quote"
-      className="border-t border-border bg-background py-24 sm:py-32"
+      className="relative z-[7] border-t border-border bg-background py-24 sm:py-32"
     >
       <div className="mx-auto max-w-2xl px-6">
         <ScrollReveal as="div" className="text-center">

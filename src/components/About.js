@@ -1,4 +1,5 @@
 import ScrollReveal from "./ScrollReveal";
+import PinnedSection from "./PinnedSection";
 
 // תוכן דמו להחלפה — ניסוחים כלליים, לא נתונים/הסמכות ספציפיים
 const values = [
@@ -22,7 +23,7 @@ const values = [
 
 export default function About() {
   return (
-    <section id="about" className="bg-background py-24 sm:py-32">
+    <PinnedSection id="about" zIndex={3} className="bg-background py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-6">
         <ScrollReveal as="div" className="max-w-3xl">
           <h2 className="font-heading text-3xl text-accent sm:text-4xl">
@@ -52,6 +53,6 @@ export default function About() {
           ))}
         </div>
       </div>
-    </section>
+    </PinnedSection>
   );
 }

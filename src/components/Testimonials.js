@@ -1,4 +1,5 @@
 import ScrollReveal from "./ScrollReveal";
+import PinnedSection from "./PinnedSection";
 import { IconStar, IconQuote } from "./icons";
 
 // תוכן דמו להחלפה — להחליף בהמלצות אמיתיות של לקוחות (ציטוט + שם, אפשר גם דירוג כוכבים)
@@ -25,7 +26,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="bg-background-alt py-24 sm:py-32">
+    <PinnedSection id="testimonials" zIndex={6} className="bg-background-alt py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-6">
         <ScrollReveal as="div">
           <h2 className="font-heading text-3xl text-accent sm:text-4xl">
@@ -59,6 +60,6 @@ export default function Testimonials() {
           ))}
         </div>
       </div>
-    </section>
+    </PinnedSection>
   );
 }

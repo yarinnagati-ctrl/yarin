@@ -1,6 +1,7 @@
 import Link from "next/link";
 import StockPhoto from "./StockPhoto";
 import ScrollReveal from "./ScrollReveal";
+import PinnedSection from "./PinnedSection";
 import { galleryPreview } from "@/lib/photos";
 
 // תוכן דמו להחלפה — להחליף בתמונות פרויקטים אמיתיות (מומלץ: זוגות לפני/אחרי)
@@ -12,7 +13,7 @@ const previewItems = [
 
 export default function GalleryPreview() {
   return (
-    <section id="gallery" className="py-24 sm:py-32">
+    <PinnedSection id="gallery" zIndex={2} className="bg-background py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-6">
         <ScrollReveal
           as="div"
@@ -68,6 +69,6 @@ export default function GalleryPreview() {
           לכל הפרויקטים
         </Link>
       </div>
-    </section>
+    </PinnedSection>
   );
 }

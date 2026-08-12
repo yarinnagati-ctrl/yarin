@@ -123,6 +123,23 @@ body {
   }
 }
 
+/* מעבר "שקופיות" מוצמדות בין הסקשנים הראשיים — ר' PinnedSection.js */
+.pin-slide-inner {
+  box-shadow: 0 -24px 40px -20px rgba(0, 0, 0, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pin-slide {
+    min-height: auto !important;
+  }
+
+  .pin-slide-inner {
+    position: static !important;
+    min-height: auto !important;
+    box-shadow: none;
+  }
+}
+
 /* תווית "eyebrow" מעל כותרות גדולות — ריווח אותיות רחב במקום אותיות רישיות (שלא קיימות בעברית) */
 .eyebrow {
   letter-spacing: 0.14em;

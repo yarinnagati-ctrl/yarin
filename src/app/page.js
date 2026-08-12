@@ -5,7 +5,7 @@ import Services from "@/components/Services";
 import GalleryPreview from "@/components/GalleryPreview";
 import BeforeAfter from "@/components/BeforeAfter";
 import Testimonials from "@/components/Testimonials";
-import QuoteForm from "@/components/QuoteForm";
+import WallCladdingShowcase from "@/components/wall-showcase/WallCladdingShowcase";
 
 export default function Home() {
   return (
@@ -17,7 +17,7 @@ export default function Home() {
       <Services />
       <BeforeAfter />
       <Testimonials />
-      <QuoteForm />
+      <WallCladdingShowcase />
     </>
   );
 }

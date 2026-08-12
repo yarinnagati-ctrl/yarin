@@ -72,7 +72,7 @@ export default function Stats() {
   }, []);
 
   return (
-    <section ref={ref} className="bg-ink py-16 sm:py-20">
+    <section ref={ref} className="relative z-[2] bg-ink py-16 sm:py-20">
       <div className="mx-auto grid max-w-6xl grid-cols-2 divide-white/10 px-6 sm:divide-x sm:divide-x-reverse md:grid-cols-4">
         {stats.map((stat) => (
           <StatItem key={stat.label} stat={stat} active={active} />

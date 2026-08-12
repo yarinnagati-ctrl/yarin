@@ -2,6 +2,7 @@ import Image from "next/image";
 import BeforeAfterSlider from "./BeforeAfterSlider";
 import StockPhoto from "./StockPhoto";
 import ScrollReveal from "./ScrollReveal";
+import PinnedSection from "./PinnedSection";
 import { beforeAfterPairs } from "@/lib/photos";
 
 // תמונת פרויקט אמיתית — ללא תגית "תוכן דמו" (בניגוד ל-StockPhoto)
@@ -15,8 +16,9 @@ function ProjectPhoto({ src, alt }) {
 
 export default function BeforeAfter() {
   return (
-    <section
+    <PinnedSection
       id="before-after"
+      zIndex={5}
       className="border-t border-border bg-background py-24 sm:py-32"
     >
       <div className="mx-auto max-w-6xl px-6">
@@ -49,6 +51,6 @@ export default function BeforeAfter() {
           })}
         </div>
       </div>
-    </section>
+    </PinnedSection>
   );
 }

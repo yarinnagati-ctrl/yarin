@@ -11,6 +11,7 @@ import {
 } from "./icons";
 import ScrollReveal from "./ScrollReveal";
 import StockPhoto from "./StockPhoto";
+import PinnedSection from "./PinnedSection";
 import { services as servicePhotos } from "@/lib/photos";
 
 // תוכן דמו להחלפה — טקסטים שיווקיים לדוגמה, ללא נתונים אמיתיים (שנות ניסיון/פרויקטים/לקוחות).
@@ -64,7 +65,11 @@ export default function Services() {
   const current = services[active];
 
   return (
-    <section id="services" className="border-t border-border bg-background-alt py-24 sm:py-32">
+    <PinnedSection
+      id="services"
+      zIndex={4}
+      className="border-t border-border bg-background-alt py-24 sm:py-32"
+    >
       <div className="mx-auto max-w-6xl px-6">
         <ScrollReveal as="div">
           <h2 className="font-heading text-3xl text-accent sm:text-4xl">
@@ -130,6 +135,6 @@ export default function Services() {
           </div>
         </ScrollReveal>
       </div>
-    </section>
+    </PinnedSection>
   );
 }

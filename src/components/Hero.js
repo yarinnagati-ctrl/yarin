@@ -1,5 +1,6 @@
 import Link from "next/link";
 import StockPhoto from "./StockPhoto";
+import PinnedSection from "./PinnedSection";
 import { heroImages } from "@/lib/photos";
 
 // שכבת תמונות רקע מלאה שמתחלפת בדעיכה איטית (fade), תמונה אחת בכל פעם, ברצף אינסופי.
@@ -34,9 +35,10 @@ function BackgroundSlideshow() {
 
 export default function Hero() {
   return (
-    <section
+    <PinnedSection
       id="hero"
-      className="relative flex h-[100svh] min-h-[600px] items-end overflow-hidden bg-ink"
+      zIndex={1}
+      className="flex h-[100svh] min-h-[600px] items-end overflow-hidden bg-ink"
     >
       <BackgroundSlideshow />
 
@@ -68,6 +70,6 @@ export default function Hero() {
           </Link>
         </div>
       </div>
-    </section>
+    </PinnedSection>
   );
 }
