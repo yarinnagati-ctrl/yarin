@@ -6,6 +6,7 @@ import { Environment, Lightformer } from "@react-three/drei";
 import * as THREE from "three";
 import ShadowCatcher from "./Room";
 import Slats from "./Slats";
+import Table from "./Table";
 import CameraRig from "./CameraRig";
 import WarmAccentLight from "./WarmAccentLight";
 
@@ -80,6 +81,7 @@ export default function Scene({ progressRef, reducedMotion }) {
       <Suspense fallback={null}>
         <ShadowCatcher />
         <Slats progressRef={progressRef} reducedMotion={reducedMotion} count={count} />
+        <Table progressRef={progressRef} reducedMotion={reducedMotion} />
       </Suspense>
     </Canvas>
   );
