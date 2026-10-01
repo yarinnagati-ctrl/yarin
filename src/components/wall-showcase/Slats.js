@@ -35,6 +35,10 @@ function buildSlats(count) {
     const withinPair = i % 2;
     const pairT = pairCount > 1 ? pairIndex / (pairCount - 1) : 0;
     const jitter = (Math.random() - 0.5) * 0.05;
+    // וריאציה עדינה בגוון העץ — עץ אמיתי לעולם לא אחיד בין קרש לקרש
+    const hue = 28 + Math.random() * 10;
+    const sat = 35 + Math.random() * 18;
+    const lig = 40 + Math.random() * 10;
     slats.push({
       x,
       width,
@@ -42,6 +46,7 @@ function buildSlats(count) {
       delay: pairT + withinPair * PAIR_STAGGER + jitter,
       rotJitter: (Math.random() - 0.5) * 2.4,
       slideFrom: withinPair === 0 ? -width * 0.9 : width * 0.9,
+      tint: new THREE.Color(`hsl(${hue}, ${sat}%, ${lig}%)`),
     });
   }
 
@@ -149,7 +154,14 @@ export default function Slats({ progressRef, reducedMotion, count = 65 }) {
           castShadow
           receiveShadow
         >
-          <meshStandardMaterial map={woodTexture} roughness={0.95} metalness={0} />
+          <meshPhysicalMaterial
+            map={woodTexture}
+            color={s.tint}
+            roughness={0.72}
+            metalness={0}
+            clearcoat={0.15}
+            clearcoatRoughness={0.65}
+          />
         </RoundedBox>
       ))}
     </group>

@@ -2,6 +2,7 @@
 
 import { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
+import { Environment, Lightformer } from "@react-three/drei";
 import * as THREE from "three";
 import ShadowCatcher from "./Room";
 import Slats from "./Slats";
@@ -40,14 +41,41 @@ export default function Scene({ progressRef, reducedMotion }) {
 
   return (
     <Canvas
-      shadows={{ type: THREE.PCFShadowMap }}
+      shadows={{ type: THREE.PCFSoftShadowMap }}
       dpr={[1, 1.5]}
       gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       className="!absolute !inset-0"
     >
       <CameraRig />
       <WarmAccentLight progressRef={progressRef} reducedMotion={reducedMotion} />
-      <ambientLight intensity={0.7} color="#efe3d2" />
+      <ambientLight intensity={0.25} color="#efe3d2" />
+
+      {/* תאורה סביבתית — מוסיפה השתקפויות רכות על העץ ומעניקה עומק לחומר */}
+      <Environment resolution={256}>
+        <Lightformer
+          form="rect"
+          intensity={1.5}
+          position={[0, 1.8, 2]}
+          scale={[8, 4, 1]}
+          color="#fff5e6"
+        />
+        <Lightformer
+          form="rect"
+          intensity={0.7}
+          position={[-3.5, 0, 1]}
+          rotation={[0, Math.PI / 5, 0]}
+          scale={[5, 8, 1]}
+          color="#e8c8a0"
+        />
+        <Lightformer
+          form="rect"
+          intensity={0.5}
+          position={[3.5, -0.5, 1]}
+          rotation={[0, -Math.PI / 5, 0]}
+          scale={[5, 8, 1]}
+          color="#d4a76a"
+        />
+      </Environment>
 
       <Suspense fallback={null}>
         <ShadowCatcher />

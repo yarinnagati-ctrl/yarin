@@ -29,7 +29,7 @@ export default function WarmAccentLight({ progressRef, reducedMotion }) {
       intensity={0.75}
       color="#fff1de"
       castShadow
-      shadow-mapSize={[1024, 1024]}
+      shadow-mapSize={[2048, 2048]}
     />
   );
 }
